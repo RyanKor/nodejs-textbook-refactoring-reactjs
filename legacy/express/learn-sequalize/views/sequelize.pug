@@ -1,0 +1,62 @@
+doctype html
+html
+    head
+        meta(charset='utf-8')
+        title sequelize server
+        style.
+            table {
+                border : 1px solid black;
+                border-collapse : collapse;
+            }
+            table th, table td {
+                border : 1px solid black;
+            }
+    body
+        div
+            form#user-form
+                fieldset
+                    legend register user
+                    div
+                        input#username(type="text" placeholder="Name")
+                    div
+                        input#age(type="number" placeholder="age")
+                    div
+                        input#married(type="checkbox")
+                        label(for="married") marriage check
+                    button(type="submit") register
+            br
+            table#user-list
+                thead
+                    tr
+                        th id
+                        th name
+                        th age
+                        th marriage
+                tbody
+                    for user in users
+                        tr
+                            td= user.id
+                            td= user.name
+                            td= user.age
+                            td= user.married ? 'done' : 'not yet'
+            br
+            div
+                form#comment-form
+                    fieldset
+                        legend register commnet
+                        div
+                           input#userid(type="text" placeholder="user id")
+                        div
+                            input#comment(type="text" placeholder="comment")
+                        button(type="submit") 등록                    
+            br
+            table#comment-list
+                thead
+                    tr
+                        th id
+                        th author
+                        th comment
+                        th edit
+                        th delete
+                tbody
+            script(src="/sequelize.js")
